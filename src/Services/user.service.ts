@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RegisterUser } from '../app/interfaces/register-interfaces'
 
 
 @Injectable({
@@ -12,8 +13,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUserDetails(): Observable<string[]> {
-    const url = this.apiUrl+'/names'
-    return this.http.get<string[]>(url);
+  registerUser(user: RegisterUser): Observable<Object> {
+    const url = this.apiUrl+'/user/userRegister'
+    return this.http.post(url,user);
   }
 }

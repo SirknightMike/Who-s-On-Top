@@ -10,8 +10,5 @@ export class HomePageComponent {
   users: string[] = [];
 
   constructor(private _userService: UserService){
-    this._userService.getUserDetails().subscribe(res => {
-      this.users = res;
-    })
   }
 }
