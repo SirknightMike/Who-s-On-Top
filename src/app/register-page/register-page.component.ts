@@ -11,36 +11,45 @@ import { ErrorDialogComponent } from 'src/components/error-dialog/error-dialog.c
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
-  user: RegisterUser = {Username: '',Email: '', Password: ''};
+  user: RegisterUser = { Username: '',Email: '', Password: '' };
 
   constructor(private _userService: UserService,public dialog: MatDialog,private snackbar: MatSnackBar) {
     
   }
 
   register() {
-    this._userService.registerUser(this.user).subscribe(
-      (response) => {
-        console.log('User registered successfully', response);
-        this.openSuccessSnackbar('User registered successfully');
-      },
-      (error) => {
-        console.error('Failed to register user', error);
-        this.openErrorSnackbar('Failed to register user');
-      }
-    );
+    const testText = "User has been registered test";
+    console.log("This is the value of the testText: ", testText);
+    this._userService.testNames().subscribe((res) => {
+      console.log('Response value: ', res);
+    });
+    // this._userService.registerUser(this.user).subscribe(
+    //   (response) => {
+    //     console.log('User registered successfully', response);
+    //     this.openSuccessSnackbar('User registered successfully');
+    //   },
+    //   (error) => {
+    //     console.error('Failed to register user', error);
+    //     this.openErrorSnackbar('Failed to register user');
+    //   }
+    // );
+
+    
+
+
   }
 
   openErrorSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 5000,
-      panelClass: ['mat-simple-snackbar'], // Add the custom class to the Snackbar
+      panelClass: ['mat-simple-snackbar'], 
     });
   }
 
   openSuccessSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 5000,
-      panelClass: ['mat-simple-snackbar'], // Add the custom class to the Snackbar
+      panelClass: ['mat-simple-snackbar'], 
     });
   }
 
