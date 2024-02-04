@@ -17,26 +17,10 @@ export class RegisterPageComponent {
     
   }
 
-  register() {
-    const testText = "User has been registered test";
-    console.log("This is the value of the testText: ", testText);
-    this._userService.testNames().subscribe((res) => {
-      console.log('Response value: ', res);
-    });
-    // this._userService.registerUser(this.user).subscribe(
-    //   (response) => {
-    //     console.log('User registered successfully', response);
-    //     this.openSuccessSnackbar('User registered successfully');
-    //   },
-    //   (error) => {
-    //     console.error('Failed to register user', error);
-    //     this.openErrorSnackbar('Failed to register user');
-    //   }
-    // );
-
-    
-
-
+  registerClick() {
+    this._userService.registerUser(this.user).subscribe((res) => {
+      this.openSuccessSnackbar('User registered succesfully');
+    )
   }
 
   openErrorSnackbar(message: string): void {

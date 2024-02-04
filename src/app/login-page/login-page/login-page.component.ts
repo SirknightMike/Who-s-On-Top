@@ -14,8 +14,4 @@ export class LoginPageComponent {
   navigateToRegister(): void {
     this.router.navigate(['/register']);
   }
-
-  loginClick() {
-    this.UserService.loginClickTest().subscribe();
-  }
 }
