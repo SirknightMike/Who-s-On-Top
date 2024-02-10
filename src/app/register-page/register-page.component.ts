@@ -17,11 +17,14 @@ export class RegisterPageComponent {
     
   }
 
-  registerClick() {
-    this._userService.registerUser(this.user).subscribe((res) => {
-      this.openSuccessSnackbar('User registered succesfully');
-    )
+  registerClick(): void {
+    this._userService.registerUser(this.user).subscribe({
+      next: () => this.openSuccessSnackbar('User has been successfully created'),
+      error: () => this.openErrorSnackbar('Failed to register User'),
+    })
   }
+
+
 
   openErrorSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
