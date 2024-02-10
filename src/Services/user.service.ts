@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import { RegisterUser } from '../app/interfaces/register-interfaces'
+import { ApiHandler } from 'src/app/abstract/api-handler';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService extends ApiHandler {
 
-  private apiUrl = 'https://localhost:5000'; // Replace with your API URL
+  constructor(private http: HttpClient, private errorHandler: ErrorHandler) {
+    super('users')
+   }
 
-  constructor(private http: HttpClient) { }
-
-  getUserDetails(): Observable<string[]> {
-    const url = this.apiUrl+'/names'
-    return this.http.get<string[]>(url);
+  registerUser(user: RegisterUser): Observable<Object> {
+    const url = this.apiUrl+'/register'
+    console.log('Value of the Url: ', url);
+    console.log('The value of the users which is registering: ', user)
+    return this.http.post(url,user)
+    
   }
+
 }
