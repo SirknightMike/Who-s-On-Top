@@ -16,7 +16,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" placeholder="Choose a password" [(ngModel)]="user.Password">
         </div>
-        <button type="button" (click)="registerClick()">Register</button>
+          <button type="button" (click)="registerClick()" class="register-button">Register</button>
         <p class="login-link">Already have an account? <a [routerLink]="['/login']">Login here</a></p>
       </div>
     </div>

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { RegisterUser } from '../interfaces/register-interfaces';
 import { UserService } from 'src/Services/user.service';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from 'src/components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-register-page',
@@ -28,15 +27,15 @@ export class RegisterPageComponent {
 
   openErrorSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
-      duration: 5000,
-      panelClass: ['mat-simple-snackbar'], 
+      duration: 100000,
+      panelClass: ['mat-error-snackbar'] 
     });
   }
 
   openSuccessSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
-      duration: 5000,
-      panelClass: ['mat-simple-snackbar'], 
+      duration: 100000,
+      panelClass: "mat-success-snackbar"
     });
   }
 
