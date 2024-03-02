@@ -10,32 +10,28 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
-  user: RegisterUser = { Username: '',Email: '', Password: '' };
+  user: RegisterUser = { username: '',email: '', password: '' };
 
-  constructor(private _userService: UserService,public dialog: MatDialog,private snackbar: MatSnackBar) {
-    
-  }
+  constructor(private _userService: UserService, public dialog: MatDialog, public snackbar: MatSnackBar) {}
 
-  registerClick(): void {
+  onRegisterClick(): void {
     this._userService.registerUser(this.user).subscribe({
       next: () => this.openSuccessSnackbar('User has been successfully created'),
       error: () => this.openErrorSnackbar('Failed to register User'),
     })
   }
-
-
-
+  
   openErrorSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 100000,
-      panelClass: ['mat-error-snackbar'] 
+      panelClass: 'error-snackbar',
     });
   }
 
   openSuccessSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 100000,
-      panelClass: "mat-success-snackbar"
+      panelClass: "success-snackbar",
     });
   }
 
