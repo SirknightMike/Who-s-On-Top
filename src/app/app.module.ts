@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/components/error-dialog/error-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { LayoutComponent } from './layout/layout.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LoginPageComponent,
     RegisterPageComponent,
     ErrorDialogComponent,
+    LayoutComponent,
+    SidenavComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSidenavModule,
     BrowserAnimationsModule
   ],
   providers: [],
