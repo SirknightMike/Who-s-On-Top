@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RegisterUser } from '../interfaces/register-interfaces';
-import { UserService } from 'src/Services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { UserService } from 'src/Services/user/user.service';
 
 @Component({
   selector: 'app-register-page',

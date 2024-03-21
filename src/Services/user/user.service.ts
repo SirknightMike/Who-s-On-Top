@@ -1,7 +1,6 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
-import { RegisterUser } from '../app/interfaces/register-interfaces'
 import { ApiHandler } from 'src/app/abstract/api-handler';
 
 
