@@ -15,7 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { HomeComponent } from './home/home.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { HomeComponent } from './home/home.component';
     ErrorDialogComponent,
     LayoutComponent,
     SidenavComponent,
-    HomeComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,

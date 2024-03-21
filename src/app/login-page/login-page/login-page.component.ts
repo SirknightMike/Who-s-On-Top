@@ -23,7 +23,10 @@ export class LoginPageComponent {
 
   onLoginClick(): void {
     this._userService.loginUser(this.user).pipe().subscribe({
-      next: () => this.openSuccessSnackbar('Login Successfully'),
+      next: () => {
+        this.openSuccessSnackbar('Login Successfully')
+        this.router.navigate(['/home']);
+    },
       error: () => this.openErrorSnackbar('Failed to Login '),
     })
   }
