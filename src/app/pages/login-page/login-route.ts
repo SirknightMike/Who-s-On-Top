@@ -2,7 +2,7 @@
 
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { RegisterPageComponent } from 'src/app/register-page/register-page.component';
+import { RegisterPageComponent } from 'src/app/pages/register-page/register-page.component';
 import { LoginPageComponent } from './login-page.component';
 import { LayoutComponent } from 'src/app/layout/layout.component';
 

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from 'src/Pages/home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page/login-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LoginRouteModule } from './login-page/login-page/login-route';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
