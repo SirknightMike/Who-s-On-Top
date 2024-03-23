@@ -2,6 +2,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { ApiHandler } from 'src/app/abstract/api-handler';
+import { RegisterUser, User } from 'src/app/interfaces/register-interfaces';
 
 
 @Injectable({
@@ -15,10 +16,12 @@ export class UserService extends ApiHandler {
 
   registerUser(user: RegisterUser): Observable<Object> {
     const url = this.apiUrl+'/register'
-    console.log('Value of the Url: ', url);
-    console.log('The value of the users which is registering: ', user)
     return this.http.post(url,user)
-    
   }
+
+  loginUser(user: User) {
+    const url = this.apiUrl+'/login';
+    return this.http.post(url, user);
+  } 
 
 }

@@ -1,0 +1,20 @@
+<mat-drawer-container class="example-container">
+
+    <mat-drawer mode="side" opened class="drawer">
+        <div class="heading">
+            <h1>Who's On Top</h1>
+        </div>
+       
+        <div class="side-nav">
+            <button mat-button>Home</button>
+            <button mat-button>Game</button>
+            <button mat-button>Leaderboard</button>
+            <button mat-button>Top Performers</button>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
