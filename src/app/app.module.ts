@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/components/error-dialog/error-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatButtonModule } from '@angular/material/button';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
@@ -37,6 +39,8 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     MatDialogModule,
     MatSnackBarModule,
     MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
     BrowserAnimationsModule
   ],
   providers: [],
