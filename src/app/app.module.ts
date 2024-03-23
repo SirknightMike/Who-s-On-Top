@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
@@ -41,6 +42,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDividerModule,
     BrowserAnimationsModule
   ],
   providers: [],
