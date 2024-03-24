@@ -9,4 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent {
   constructor(private _route: Router){}
+
+  onProfileClick() {
+    this._route.navigate(['/profile'])
+  }
 }
