@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened class="drawer">
+    <mat-drawer #drawer mode="side" opened class="drawer">
         <div class="heading">
             <h1>Who's On Top</h1>
         </div>
@@ -13,7 +13,7 @@
     <mat-drawer-content>
         <!-- This is the toolbar section with the main content below. -->
         <mat-toolbar color="primary">
-            <button mat-icon-button class="example-icon"  aria-label="menu-icon">
+            <button mat-icon-button class="example-icon"  aria-label="menu-icon" (click)="toggleDrawer()">
               <mat-icon>menu</mat-icon>
             </button>
             <span class="example-spacer"></span>
