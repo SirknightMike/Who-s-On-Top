@@ -16,9 +16,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     LayoutComponent,
     SidenavComponent,
     WelcomePageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
+    MatIconModule,
+    MatMenuModule,
     BrowserAnimationsModule
   ],
   providers: [],
