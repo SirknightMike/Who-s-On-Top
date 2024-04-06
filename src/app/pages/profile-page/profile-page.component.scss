@@ -8,9 +8,33 @@
 
 .content {
     padding-bottom: 40px;
+    display: flex;
+    flex-direction: row;
 }
 
 .profile-back-button {
     display: flex;
     justify-content: end;
+}
+
+.profile-properties {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info-spacing {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
 }
