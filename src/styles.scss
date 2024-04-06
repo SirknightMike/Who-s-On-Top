@@ -1,13 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+@import '/src/assets/palettes/yellow-colour.palette.scss';
+@import '/src/assets/palettes/primary-colour.palette.scss';
+
+@include mat.core();
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-@import '/src/components/error-dialog/error-dialog.component.scss';
-.mat-simple-snackbar {
-    background-color: #4BB543;
-    color: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
+body { margin: 0; font-family: 'Merriweather', "Helvetica Neue", sans-serif; }
