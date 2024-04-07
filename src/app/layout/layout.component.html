@@ -1,10 +1,8 @@
-<mat-drawer-container class="example-container">
-
-    <mat-drawer mode="side" opened class="drawer">
+<mat-drawer-container class="nav-container">
+    <mat-drawer #drawer mode="side" opened class="drawer">
         <div class="heading">
             <h1>Who's On Top</h1>
         </div>
-       
         <div class="side-nav">
             <button mat-button>Home</button>
             <button mat-button>Game</button>
@@ -13,6 +11,20 @@
         </div>
     </mat-drawer>
     <mat-drawer-content>
+        <!-- This is the toolbar section with the main content below. -->
+        <mat-toolbar color="primary">
+            <button mat-icon-button class="menu-icon"  aria-label="menu-icon" (click)="toggleDrawer()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span class="account-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Account icon" [matMenuTriggerFor]="menu">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onProfileClick()">Profile</button>
+                <button mat-menu-item>Logout</button>
+            </mat-menu>
+          </mat-toolbar>
         <div class="main-content">
             <router-outlet></router-outlet>
         </div>
