@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
+import { Profile } from 'src/app/interfaces/profile-interface';
 
-
-export interface Profile {
-  FirstName: string;
-  LastName: string;
-  ChampionshipTitles: number;
-  Victories: number;
-  WinPercentage: number;
-}
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
