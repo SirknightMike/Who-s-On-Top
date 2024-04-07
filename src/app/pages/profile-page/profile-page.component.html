@@ -4,8 +4,7 @@
         <mat-divider></mat-divider>
     </div>
     <div class="content">
-        <div class="test">
-            <div class="profile-properties">
+        <div class="profile-properties">
                 <p><b>First Name:</b></p>
                 <p><b>Last Name: </b></p>
                 <p><b>Championship Titles: </b></p>
@@ -13,14 +12,12 @@
                 <p><b>Win Percentage: </b></p>
         </div>
         <div class="profile-info">
-                <p>{{profile.FirstName}}</p>
-                <p>{{profile.LastName}}</p>
-                <p>{{profile.ChampionshipTitles}}</p>
-                <p>{{profile.Victories}}</p>
-                <p>{{profile.WinPercentage}}</p>
+                    <p>{{profile.FirstName}}</p>
+                    <p>{{profile.LastName}}</p>
+                    <p>{{profile.ChampionshipTitles}}</p>
+                    <p>{{profile.Victories}}</p>
+                    <p>{{profile.WinPercentage}}</p>
         </div>
-        </div>
-       
     </div>
     <div class="profile-back-button">
         <button mat-flat-button color="primary" [routerLink]="['/welcome']">Back</button>
