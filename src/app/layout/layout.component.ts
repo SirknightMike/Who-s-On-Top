@@ -25,4 +25,8 @@ export class LayoutComponent {
       this.drawer.open();
     }
   }
+
+  onLogoutClick() {
+    this._route.navigate(['/login']);
+  }
 }
