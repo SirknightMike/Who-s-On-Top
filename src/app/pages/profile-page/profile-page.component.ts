@@ -9,7 +9,7 @@ import { Profile } from 'src/app/interfaces/profile-interface';
 export class ProfilePageComponent {
   profile: Profile = {
     FirstName: "Michael",
-    LastName: "Petterson",
+    LastName: "Peterson",
     ChampionshipTitles: 2,
     Victories: 50,
     WinPercentage: 60

@@ -4,8 +4,6 @@ import { Router, Routes } from '@angular/router';
 import { UserService } from 'src/Services/user/user.service';
 import { User } from 'src/app/interfaces/register-interfaces';
 
-import { RegisterPageComponent } from 'src/app/pages/register-page/register-page.component';
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
