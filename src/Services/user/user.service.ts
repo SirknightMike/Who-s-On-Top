@@ -2,7 +2,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { ApiHandler } from 'src/app/abstract/api-handler';
-import { RegisterUser, User } from 'src/app/interfaces/register-interfaces';
+import { RegisterUser, User } from 'src/app/interfaces/User-interfaces';
 
 
 @Injectable({
