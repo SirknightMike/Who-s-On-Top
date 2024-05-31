@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RegisterUser } from '../../interfaces/register-interfaces';
+import { RegisterUser } from '../../interfaces/User-interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/Services/user/user.service';
