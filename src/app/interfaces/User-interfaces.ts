@@ -9,3 +9,10 @@ export interface User {
     email: string;
     password: string;
 }
+
+export interface UserTable {
+    position: number;
+    name: string;
+    weight: number;
+    symbol: string;
+}

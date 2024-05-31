@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from 'src/Pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginRouteModule } from './pages/login-page/login-route';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,11 +18,13 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
     SidenavComponent,
     WelcomePageComponent,
     ProfilePageComponent,
+    LeaderboardPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +47,13 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
     FormsModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    MatTableModule,
     MatMenuModule,
     BrowserAnimationsModule
   ],
