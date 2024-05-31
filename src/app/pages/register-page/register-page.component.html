@@ -6,21 +6,21 @@
       <div class="register-form">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" placeholder="Choose a username" [(ngModel)]="user.username" >
+          <input type="text" id="username" name="username" placeholder="Choose a username" [(ngModel)]="user.username" (keydown.enter)="onRegisterClick()">
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.email">
+          <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.email" (keydown.enter)="onRegisterClick()">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Choose a password" [(ngModel)]="user.password">
+          <input type="password" id="password" name="password" placeholder="Choose a password" [(ngModel)]="user.password" (keydown.enter)="onRegisterClick()">
         </div>
         <div class="form-group">
           <label for="password">Confirmed Password</label>
-          <input type="password" id="confirm-password" name="confirm-password" placeholder="Choose a password" [(ngModel)]="confirmPassword">
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Choose a password" [(ngModel)]="confirmPassword" (keydown.enter)="onRegisterClick()">
         </div>
-          <button type="button" (click)="onRegisterClick()" class="register-button">Register</button>
+          <button type="button" (click)="onRegisterClick()"  class="register-button">Register</button>
         <p class="login-link">Already have an account? <a [routerLink]="['/login']">Login here</a></p>
       </div>
     </div>
