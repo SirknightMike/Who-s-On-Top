@@ -16,6 +16,10 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" placeholder="Choose a password" [(ngModel)]="user.password">
         </div>
+        <div class="form-group">
+          <label for="password">Confirmed Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Choose a password" [(ngModel)]="confirmPassword">
+        </div>
           <button type="button" (click)="onRegisterClick()" class="register-button">Register</button>
         <p class="login-link">Already have an account? <a [routerLink]="['/login']">Login here</a></p>
       </div>
