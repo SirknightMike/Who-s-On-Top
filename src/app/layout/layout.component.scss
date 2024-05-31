@@ -4,8 +4,8 @@
 }
 
 .drawer {
-    background-color: #555;
-    color: #fff;
+    background-color: #0E46A3;
+    color: #E1F7F5;
 }
 
 .heading {
@@ -16,7 +16,6 @@
 .side-nav {
     width: 300px;
     display: flex;
- 
     flex-direction: column;
     color: #fff;
 }
@@ -27,4 +26,13 @@
 
 .account-spacer {
     flex: 1 1 auto;
-  }
+}
+
+.mat-mdc-button:not(:disabled)  {
+    color: #E1F7F5;
+}
+
+.toolbar {
+    background-color: #1E0342;
+    color: #E1F7F5;
+}
