@@ -10,15 +10,22 @@ import { UserService } from 'src/Services/user/user.service';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
-  user: RegisterUser = { username: '',email: '', password: '' };
+  user: RegisterUser = { username: '',email: '', password: ''};
+
+  confirmPassword:string =  '';
 
   constructor(private _userService: UserService, public dialog: MatDialog, public snackbar: MatSnackBar) {}
 
   onRegisterClick(): void {
-    this._userService.registerUser(this.user).subscribe({
-      next: () => this.openSuccessSnackbar('User has been successfully created'),
-      error: () => this.openErrorSnackbar('Failed to register User'),
-    })
+    if (this.confirmPassword !== this.user.password) {
+      this.openErrorSnackbar('Password does not match each other.');
+    }
+    else {
+      this._userService.registerUser(this.user).subscribe({
+        next: () => this.openSuccessSnackbar('User has been successfully created'),
+        error: () => this.openErrorSnackbar('Failed to register User'),
+      })
+    }
   }
   
   openErrorSnackbar(message: string): void {
