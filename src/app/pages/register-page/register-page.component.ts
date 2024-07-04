@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RegisterUser } from '../../interfaces/User-interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,27 +7,35 @@ import { UserService } from 'src/Services/user/user.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss']
+  styleUrls: ['./register-page.component.scss'],
 })
-export class RegisterPageComponent {
-  user: RegisterUser = { username: '',email: '', password: ''};
+export class RegisterPageComponent implements OnInit {
+  user: RegisterUser = { username: '', email: '', password: '' };
 
-  confirmPassword:string =  '';
+  confirmPassword: string = '';
 
-  constructor(private _userService: UserService, public dialog: MatDialog, public snackbar: MatSnackBar) {}
+  constructor(
+    private _userService: UserService,
+    public dialog: MatDialog,
+    public snackbar: MatSnackBar
+  ) {}
+
+  ngOnInit(): void {
+    localStorage.removeItem('jwtToken');
+  }
 
   onRegisterClick(): void {
     if (this.confirmPassword !== this.user.password) {
       this.openErrorSnackbar('Password does not match each other.');
-    }
-    else {
+    } else {
       this._userService.registerUser(this.user).subscribe({
-        next: () => this.openSuccessSnackbar('User has been successfully created'),
+        next: () =>
+          this.openSuccessSnackbar('User has been successfully created'),
         error: () => this.openErrorSnackbar('Failed to register User'),
-      })
+      });
     }
   }
-  
+
   openErrorSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 100000,
@@ -38,8 +46,7 @@ export class RegisterPageComponent {
   openSuccessSnackbar(message: string): void {
     this.snackbar.open(message, 'Close', {
       duration: 100000,
-      panelClass: "success-snackbar",
+      panelClass: 'success-snackbar',
     });
   }
-
 }
