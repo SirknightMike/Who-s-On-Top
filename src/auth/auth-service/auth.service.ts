@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { ErrorHandler, Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { ApiHandler } from 'src/app/abstract/api-handler';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
