@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, Routes } from '@angular/router';
 import { UserService } from 'src/Services/user/user.service';
@@ -10,11 +10,15 @@ import { User } from 'src/app/interfaces/User-interfaces';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
 
   user: User = {email: '', password: ''};
 
   constructor(private router: Router, private _userService: UserService , private snackbar: MatSnackBar) { }
+
+  ngOnInit(): void {
+    localStorage.removeItem('jwtToken');
+  }
 
   onLoginClick(): void {
     this._userService.loginUser(this.user).pipe().subscribe({
