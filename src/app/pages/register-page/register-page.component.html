@@ -1,28 +1,67 @@
 <div class="remove-margin">
-    <div class="register-container">
-      <div class="register-header">
-        <h2>Register</h2>
-      </div>
-      <div class="register-form">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" placeholder="Choose a username" [(ngModel)]="user.username" (keydown.enter)="onRegisterClick()">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.email" (keydown.enter)="onRegisterClick()">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Choose a password" [(ngModel)]="user.password" (keydown.enter)="onRegisterClick()">
-        </div>
-        <div class="form-group">
-          <label for="password">Confirmed Password</label>
-          <input type="password" id="confirm-password" name="confirm-password" placeholder="Choose a password" [(ngModel)]="confirmPassword" (keydown.enter)="onRegisterClick()">
-        </div>
-          <button type="button" (click)="onRegisterClick()"  class="register-button">Register</button>
-        <p class="login-link">Already have an account? <a [routerLink]="['/login']">Login here</a></p>
-      </div>
+  <div class="register-container">
+    <div class="register-header">
+      <h2>Register</h2>
     </div>
+    <div class="input-section">
+      <mat-form-field class="play-time" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Choose a Username"
+          id="username"
+          name="username"
+          [(ngModel)]="user.username"
+          (keydown.enter)="onRegisterClick()"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="play-time" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="test@gmail.com"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          (keydown.enter)="onRegisterClick()"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="play-time" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          (keydown.enter)="onRegisterClick()"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="play-time" appearance="outline">
+        <mat-label>Confirmed Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Reenter Password"
+          id="confimed-password"
+          name="confirmed-password"
+          [(ngModel)]="user.password"
+          (keydown.enter)="onRegisterClick()"
+        />
+      </mat-form-field>
+
+      <button type="button" (click)="onRegisterClick()" class="register-button">
+        Register
+      </button>
+      <p class="login-link">
+        Already have an account? <a [routerLink]="['/login']">Login here</a>
+      </p>
+    </div>
+  </div>
 </div>
-  
