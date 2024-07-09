@@ -25,6 +25,8 @@ import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.com
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -54,8 +56,10 @@ import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-p
     MatDividerModule,
     MatIconModule,
     MatTableModule,
+    MatFormFieldModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
