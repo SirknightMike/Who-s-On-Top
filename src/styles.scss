@@ -8,7 +8,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Merriweather', "Helvetica Neue", sans-serif; }
 
-mat-form-field.play-time {
+mat-form-field.forms {
     width: 100%;
     .mat-mdc-text-field-wrapper > .mat-mdc-form-field-flex {
         height: 50px;
@@ -19,6 +19,15 @@ mat-form-field.play-time {
 
             .mat-mdc-input-element {
                 padding: 4px;
+            }
+        }
+
+        .mdc-notched-outline {
+            .mdc-floating-label  {
+                transform: translateY(-74%);
+            }
+            .mdc-floating-label--float-above {
+                transform: translateY(-34.75px) scale(0.75);
             }
         }
     }

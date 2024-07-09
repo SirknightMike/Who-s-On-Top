@@ -4,7 +4,7 @@
       <h2>Register</h2>
     </div>
     <div class="input-section">
-      <mat-form-field class="play-time" appearance="outline">
+      <mat-form-field class="forms" appearance="outline">
         <mat-label>Username</mat-label>
         <input
           matInput
@@ -17,7 +17,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="play-time" appearance="outline">
+      <mat-form-field class="forms" appearance="outline">
         <mat-label>Email</mat-label>
         <input
           matInput
@@ -30,7 +30,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="play-time" appearance="outline">
+      <mat-form-field class="forms" appearance="outline">
         <mat-label>Password</mat-label>
         <input
           matInput
@@ -43,7 +43,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="play-time" appearance="outline">
+      <mat-form-field class="forms" appearance="outline">
         <mat-label>Confirmed Password</mat-label>
         <input
           matInput
@@ -51,7 +51,7 @@
           placeholder="Reenter Password"
           id="confimed-password"
           name="confirmed-password"
-          [(ngModel)]="user.password"
+          [(ngModel)]="confirmPassword"
           (keydown.enter)="onRegisterClick()"
         />
       </mat-form-field>
