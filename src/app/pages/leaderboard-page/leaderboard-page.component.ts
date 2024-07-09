@@ -2,23 +2,219 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { UserTable } from 'src/app/interfaces/User-interfaces';
+import { Matches, UserTable } from 'src/app/interfaces/User-interfaces';
 
 const data: UserTable[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 12, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 13, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 14, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  {
+    position: 1,
+    name: 'Hydrogen',
+    victories: 20,
+    losses: 4,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+      Matches.win,
+    ],
+  },
+  {
+    position: 2,
+    name: 'Helium',
+    victories: 10,
+    losses: 6,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+    ],
+  },
+  {
+    position: 3,
+    name: 'Lithium',
+    victories: 7,
+    losses: 0,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.win,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 4,
+    name: 'Beryllium',
+    victories: 8,
+    losses: 8,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.lose,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.lose,
+    ],
+  },
+  {
+    position: 5,
+    name: 'Boron',
+    victories: 20,
+    losses: 2,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 6,
+    name: 'Carbon',
+    victories: 12,
+    losses: 2,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 7,
+    name: 'Nitrogen',
+    victories: 14,
+    losses: 5,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 8,
+    name: 'Oxygen',
+    victories: 15,
+    losses: 2,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 9,
+    name: 'Fluorine',
+    victories: 18,
+    losses: 10,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 10,
+    name: 'Neon',
+    victories: 20,
+    losses: 1,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 11,
+    name: 'Neon',
+    victories: 20,
+    losses: 1,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.win,
+      Matches.win,
+    ],
+  },
+  {
+    position: 12,
+    name: 'Neon',
+    victories: 21,
+    losses: 1,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+    ],
+  },
+  {
+    position: 13,
+    name: 'Neon',
+    victories: 19,
+    losses: 7,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+      Matches.lose,
+      Matches.win,
+    ],
+  },
+  {
+    position: 14,
+    name: 'Neon',
+    victories: 4,
+    losses: 9,
+    winPercentage: '20%',
+    championshipVictories: 4,
+    lastFiveMatchesResults: [
+      Matches.win,
+      Matches.win,
+      Matches.win,
+      Matches.win,
+      Matches.win,
+    ],
+  },
 ];
 
 @Component({
@@ -27,8 +223,18 @@ const data: UserTable[] = [
   styleUrls: ['./leaderboard-page.component.scss'],
 })
 export class LeaderboardPageComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = [
+    'position',
+    'name',
+    'victories',
+    'losses',
+    'winPercentage',
+    'championshipVictories',
+    'lastFiveMatchesResults',
+  ];
   dataSource = new MatTableDataSource<UserTable>(data);
+
+  Matches = Matches;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -36,5 +242,14 @@ export class LeaderboardPageComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
