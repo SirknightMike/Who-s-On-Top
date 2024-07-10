@@ -27,6 +27,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatIconModule,
     MatTableModule,
+    MatSortModule,
     MatFormFieldModule,
     MatMenuModule,
     BrowserAnimationsModule,
