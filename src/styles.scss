@@ -1,34 +1,45 @@
-
-@use '@angular/material' as mat;
-@import '/src/assets/palettes/yellow-colour.palette.scss';
-@import '/src/assets/palettes/primary-colour.palette.scss';
+@use "@angular/material" as mat;
+@import "/src/assets/palettes/yellow-colour.palette.scss";
+@import "/src/assets/palettes/primary-colour.palette.scss";
 
 @include mat.core();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Merriweather', "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Merriweather", "Helvetica Neue", sans-serif;
+}
 
 mat-form-field.forms {
-    width: 100%;
-    .mat-mdc-text-field-wrapper > .mat-mdc-form-field-flex {
-        height: 50px;
+  width: 100%;
+  .mat-mdc-text-field-wrapper > .mat-mdc-form-field-flex {
+    height: 50px;
 
-        .mat-mdc-form-field-infix{
-            padding-top: 8px;
-            padding-bottom: 8px;
+    .mat-mdc-form-field-infix {
+      padding-top: 8px;
+      padding-bottom: 8px;
 
-            .mat-mdc-input-element {
-                padding: 4px;
-            }
-        }
-
-        .mdc-notched-outline {
-            .mdc-floating-label  {
-                transform: translateY(-74%);
-            }
-            .mdc-floating-label--float-above {
-                transform: translateY(-34.75px) scale(0.75);
-            }
-        }
+      .mat-mdc-input-element {
+        padding: 4px;
+      }
     }
+
+    .mdc-notched-outline {
+      .mdc-floating-label {
+        transform: translateY(-74%);
+      }
+      .mdc-floating-label--float-above {
+        transform: translateY(-34.75px) scale(0.75);
+      }
+    }
+  }
+}
+
+.centered-sorted-header {
+  .mat-sort-header-container {
+    justify-content: center;
+  }
 }

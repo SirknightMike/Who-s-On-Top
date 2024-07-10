@@ -13,6 +13,14 @@ export interface User {
 export interface UserTable {
     position: number;
     name: string;
-    weight: number;
-    symbol: string;
+    victories: number;
+    losses: number;
+    winPercentage: string;
+    championshipVictories: number;
+    lastFiveMatchesResults: Matches[]; // [1, 0, 1, 1]  [true, false, true, true]
+}
+
+export enum Matches {
+    lose,
+    win, 
 }
