@@ -28,6 +28,8 @@ import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-p
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CompetitionPageComponent } from './pages/competition-page/competition-page.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MatSortModule } from '@angular/material/sort';
     WelcomePageComponent,
     ProfilePageComponent,
     LeaderboardPageComponent,
+    CompetitionPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatDividerModule,
     MatIconModule,
     MatTableModule,
+    MatTabsModule,
     MatSortModule,
     MatFormFieldModule,
     MatMenuModule,
