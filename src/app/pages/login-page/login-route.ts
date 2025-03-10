@@ -9,15 +9,18 @@ import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import { ProfilePageComponent } from '../profile-page/profile-page.component';
 import { LeaderboardPageComponent } from '../leaderboard-page/leaderboard-page.component';
 import { AuthGuard } from 'src/auth/auth-service/auth.service';
+import { CompetitionPageComponent } from '../competition-page/competition-page.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  { path: 'competition', component: CompetitionPageComponent },
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      
       { path: '', component: WelcomePageComponent },
       { path: 'leaderboard', component: LeaderboardPageComponent },
       { path: 'profile', component: ProfilePageComponent },
