@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { RegisterUser } from '../../interfaces/User-interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,8 +25,18 @@ export class RegisterPageComponent implements OnInit {
     localStorage.removeItem('jwtToken');
   }
 
-  onRegisterClick(): void {
-    if (this.confirmPassword !== this.user.password) {
+  get passwordsMatch(): boolean {
+    return this.confirmPassword === this.user.password;
+  }
+
+  onRegisterClick(form?: NgForm): void {
+    if (form && form.invalid) {
+      form.control.markAllAsTouched();
+      this.openErrorSnackbar('Please fix the form errors.');
+      return;
+    }
+
+    if (!this.passwordsMatch) {
       this.openErrorSnackbar('Password does not match each other.');
     } else {
       this._userService.registerUser(this.user).subscribe({

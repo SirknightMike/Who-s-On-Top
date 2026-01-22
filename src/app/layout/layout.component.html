@@ -4,10 +4,22 @@
             <h1>Who's On Top</h1>
         </div>
         <div class="side-nav">
-            <button mat-button [routerLink]="['']">Home</button>
-            <button mat-button>Game</button>
-            <button mat-button [routerLink]="['leaderboard']">Leaderboard</button>
-            <button mat-button>Top Performers</button>
+            <button mat-button [routerLink]="['']">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+            </button>
+            <button mat-button>
+                <mat-icon>sports_esports</mat-icon>
+                <span>Game</span>
+            </button>
+            <button mat-button [routerLink]="['leaderboard']">
+                <mat-icon>leaderboard</mat-icon>
+                <span>Leaderboard</span>
+            </button>
+            <button mat-button>
+                <mat-icon>emoji_events</mat-icon>
+                <span>Top Performers</span>
+            </button>
         </div>
     </mat-drawer>
     <mat-drawer-content>

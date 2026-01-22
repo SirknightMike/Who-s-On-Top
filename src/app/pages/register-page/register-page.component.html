@@ -3,7 +3,7 @@
     <div class="register-header">
       <h2>Register</h2>
     </div>
-    <div class="input-section">
+    <form class="input-section" #registerForm="ngForm" (ngSubmit)="onRegisterClick(registerForm)" novalidate>
       <mat-form-field class="forms" appearance="outline">
         <mat-label>Username</mat-label>
         <input
@@ -13,21 +13,35 @@
           id="username"
           name="username"
           [(ngModel)]="user.username"
-          (keydown.enter)="onRegisterClick()"
+          required
+          minlength="3"
+          #username="ngModel"
         />
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+          <span *ngIf="username.errors?.['required']">Username is required.</span>
+          <span *ngIf="username.errors?.['minlength']">
+            Username must be at least 3 characters.
+          </span>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="forms" appearance="outline">
         <mat-label>Email</mat-label>
         <input
           matInput
-          type="text"
+          type="email"
           placeholder="test@gmail.com"
           id="email"
           name="email"
           [(ngModel)]="user.email"
-          (keydown.enter)="onRegisterClick()"
+          required
+          email
+          #email="ngModel"
         />
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span *ngIf="email.errors?.['required']">Email is required.</span>
+          <span *ngIf="email.errors?.['email']">Enter a valid email.</span>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="forms" appearance="outline">
@@ -39,8 +53,16 @@
           id="password"
           name="password"
           [(ngModel)]="user.password"
-          (keydown.enter)="onRegisterClick()"
+          required
+          minlength="6"
+          #password="ngModel"
         />
+        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span *ngIf="password.errors?.['required']">Password is required.</span>
+          <span *ngIf="password.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </span>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="forms" appearance="outline">
@@ -49,19 +71,31 @@
           matInput
           type="password"
           placeholder="Reenter Password"
-          id="confimed-password"
+          id="confirmed-password"
           name="confirmed-password"
           [(ngModel)]="confirmPassword"
-          (keydown.enter)="onRegisterClick()"
+          required
+          #confirmedPassword="ngModel"
         />
+        <mat-error
+          *ngIf="
+            (confirmedPassword.dirty || confirmedPassword.touched) &&
+            (confirmedPassword.invalid || !passwordsMatch)
+          "
+        >
+          <span *ngIf="confirmedPassword.errors?.['required']">
+            Confirmed password is required.
+          </span>
+          <span *ngIf="!passwordsMatch">Passwords do not match.</span>
+        </mat-error>
       </mat-form-field>
 
-      <button type="button" (click)="onRegisterClick()" class="register-button">
+      <button type="submit" class="register-button" [disabled]="registerForm.invalid || !passwordsMatch">
         Register
       </button>
       <p class="login-link">
         Already have an account? <a [routerLink]="['/login']">Login here</a>
       </p>
-    </div>
+    </form>
   </div>
 </div>

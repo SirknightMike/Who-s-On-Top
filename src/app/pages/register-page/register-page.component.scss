@@ -1,34 +1,37 @@
 .remove-margin {
   font-family: "Arial", sans-serif;
-  background-image: url("../../../assets/images/register-page-background-image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   margin: 0 !important;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(135deg, #f5fff9, #eef7f2);
 }
 
 .register-container {
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(22, 34, 51, 0.12);
+  border-radius: 14px;
   overflow: hidden;
-  width: 300px;
+  width: min(380px, 92vw);
 }
 
 .register-header {
   background-color: #27ae60; /* Green color for register header */
   color: #fff;
-  padding: 15px;
+  padding: 18px;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .register-button {
   width: 100%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .register-form {
@@ -44,7 +47,7 @@
 }
 
 .input-section {
-  padding: 20px;
+  padding: 22px 20px 26px;
 }
 
 :host ::ng-deep .mat-mdc-text-field-wrapper {
@@ -76,8 +79,16 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:not(:disabled):hover {
   background-color: #219d52; /* Darker green on hover */
+  box-shadow: 0 8px 16px rgba(39, 174, 96, 0.25);
+  transform: translateY(-1px);
 }
 
 .login-link {
@@ -94,4 +105,9 @@ button:hover {
       text-decoration: underline;
     }
   }
+}
+
+.forms {
+  width: 100%;
+  margin-bottom: 6px;
 }
