@@ -1,0 +1,36 @@
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-layout__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.page-layout__title {
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 6px 0 0;
+    color: #6b7280;
+  }
+}
+
+.page-layout__actions:empty {
+  display: none;
+}
+
+.page-layout__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

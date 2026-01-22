@@ -1,17 +1,20 @@
-<ul>
+<nav class="sidenav">
+  <div class="sidenav__title">Menu</div>
+  <ul class="sidenav__list">
   <li>
-    <a [routerLink]="['/home']">Home</a>
+    <a [routerLink]="['/home']" routerLinkActive="is-active">Home</a>
   </li>
   <li>
-    <a [routerLink]="['/competitions']">Competitions</a>
+    <a [routerLink]="['/competitions']" routerLinkActive="is-active">Competitions</a>
   </li>
   <li>
-    <a [routerLink]="['/about']">About</a>
+    <a [routerLink]="['/about']" routerLinkActive="is-active">About</a>
   </li>
   <li>
-    <a [routerLink]="['/leaderboard']">Leaderboard</a>
+    <a [routerLink]="['/leaderboard']" routerLinkActive="is-active">Leaderboard</a>
   </li>
   <li>
-    <a [routerLink]="['/mathes']">Matches</a>
+    <a [routerLink]="['/mathes']" routerLinkActive="is-active">Matches</a>
   </li>
-</ul>
+  </ul>
+</nav>

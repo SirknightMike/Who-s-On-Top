@@ -1,0 +1,15 @@
+<section class="page-layout">
+  <header class="page-layout__header">
+    <div class="page-layout__title">
+      <h1>{{ title }}</h1>
+      <p *ngIf="subtitle">{{ subtitle }}</p>
+    </div>
+    <div class="page-layout__actions">
+      <ng-content select="[page-actions]"></ng-content>
+    </div>
+  </header>
+  <mat-divider></mat-divider>
+  <div class="page-layout__content">
+    <ng-content></ng-content>
+  </div>
+</section>
