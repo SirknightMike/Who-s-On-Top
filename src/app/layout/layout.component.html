@@ -3,6 +3,7 @@
         <div class="heading">
             <h1>Who's On Top</h1>
         </div>
+        <!-- please check the way the drawer is being used here, could we not use the sidenav we have created -->
         <div class="side-nav">
             <button mat-button [routerLink]="['']">
                 <mat-icon>home</mat-icon>
@@ -10,11 +11,15 @@
             </button>
             <button mat-button>
                 <mat-icon>sports_esports</mat-icon>
-                <span>Game</span>
+                <span>Competitions</span>
             </button>
             <button mat-button [routerLink]="['leaderboard']">
                 <mat-icon>leaderboard</mat-icon>
                 <span>Leaderboard</span>
+            </button>
+            <button mat-button [routerLink]="['matches']">
+                <mat-icon>scoreboard</mat-icon>
+                <span>Matches</span>
             </button>
             <button mat-button>
                 <mat-icon>emoji_events</mat-icon>

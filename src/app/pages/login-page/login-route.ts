@@ -8,6 +8,7 @@ import { LayoutComponent } from 'src/app/layout/layout.component';
 import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import { ProfilePageComponent } from '../profile-page/profile-page.component';
 import { LeaderboardPageComponent } from '../leaderboard-page/leaderboard-page.component';
+import { MatchesPageComponent } from '../matches-page/matches-page.component';
 import { AuthGuard } from 'src/auth/auth-service/auth.service';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: '', component: WelcomePageComponent },
       { path: 'leaderboard', component: LeaderboardPageComponent },
       { path: 'profile', component: ProfilePageComponent },
+      { path: 'matches', component: MatchesPageComponent },
     ],
   },
 

@@ -1,0 +1,22 @@
+.dialog-content {
+  display: grid;
+  gap: 16px;
+  padding-top: 8px;
+  width: min(560px, 100%);
+}
+
+.players-row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.score-row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+mat-form-field {
+  width: 100%;
+}
