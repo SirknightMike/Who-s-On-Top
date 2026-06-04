@@ -1,0 +1,85 @@
+<h2 mat-dialog-title>Add match result</h2>
+
+<mat-dialog-content class="dialog-content">
+  <mat-form-field appearance="outline">
+    <mat-label>Competition</mat-label>
+    <input matInput [(ngModel)]="matchResult.competition" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="matchDatePicker"
+      [(ngModel)]="matchResult.scheduledAt"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="matchDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #matchDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="players-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Player one</mat-label>
+      <input matInput [(ngModel)]="matchResult.playerOne" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Player two</mat-label>
+      <input matInput [(ngModel)]="matchResult.playerTwo" />
+    </mat-form-field>
+  </div>
+
+  <div class="score-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Player one score</mat-label>
+      <input
+        matInput
+        type="number"
+        min="0"
+        [(ngModel)]="matchResult.scorePlayerOne"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Player two score</mat-label>
+      <input
+        matInput
+        type="number"
+        min="0"
+        [(ngModel)]="matchResult.scorePlayerTwo"
+      />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="matchResult.status">
+      <mat-option value="Completed">Completed</mat-option>
+      <mat-option value="Draw">Draw</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Scheduled">Scheduled</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Notes</mat-label>
+    <textarea matInput rows="3" [(ngModel)]="matchResult.notes"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="
+      !matchResult.playerOne ||
+      !matchResult.playerTwo ||
+      matchResult.scorePlayerOne === null ||
+      matchResult.scorePlayerTwo === null
+    "
+    (click)="save()"
+  >
+    Add result
+  </button>
+</mat-dialog-actions>

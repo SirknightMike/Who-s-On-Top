@@ -2,19 +2,159 @@
 @import "/src/assets/palettes/yellow-colour.palette.scss";
 @import "/src/assets/palettes/primary-colour.palette.scss";
 
-@include mat.core();
+// ─── Define palettes ──────────────────────────────────────
+$primary-palette: mat.define-palette($deep-blue-palette, 700, 400, 900);
+$accent-palette:  mat.define-palette($stylish-yellow-palette, 500, 300, 700);
+$warn-palette:    mat.define-palette(mat.$red-palette);
 
-html,
-body {
+// ─── Light theme ──────────────────────────────────────────
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent:  $accent-palette,
+    warn:    $warn-palette,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: '"Merriweather", "Helvetica Neue", sans-serif',
+  ),
+  density: 0,
+));
+
+// ─── Dark theme ───────────────────────────────────────────
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $primary-palette,
+    accent:  $accent-palette,
+    warn:    $warn-palette,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: '"Merriweather", "Helvetica Neue", sans-serif',
+  ),
+  density: 0,
+));
+
+// ─── Apply themes ─────────────────────────────────────────
+// Light theme is the default (no class needed)
+@include mat.core();
+@include mat.all-component-themes($light-theme);
+
+// Dark theme applies when <body class="dark-theme">
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}
+
+// ─── Base ─────────────────────────────────────────────────
+html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: "Merriweather", "Helvetica Neue", sans-serif;
+  background: var(--wot-bg-page);
+  color: var(--wot-text-primary);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
+// ─── CSS custom properties — Light ────────────────────────
+:root {
+  // Backgrounds
+  --wot-bg-page:        #f0f4f8;
+  --wot-bg-surface:     #ffffff;
+  --wot-bg-surface-2:   #f8fafc;
+  --wot-bg-sidebar:     #1565c0;   // blue-800
+  --wot-bg-toolbar:     #1976d2;   // blue-700
+  --wot-bg-input:       #ffffff;
+
+  // Brand
+  --wot-primary:        #1976d2;
+  --wot-primary-dark:   #1565c0;
+  --wot-primary-light:  #90caf9;
+   --wot-accent:         #fbc02d;   // amber-700 — visible on white
+  --wot-accent-dark:    #f9a825;   // amber-800
+  --wot-accent-text:    #1a1100;   
+
+  // Text
+  --wot-text-primary:   #111827;
+  --wot-text-secondary: #4b5563;
+  --wot-text-hint:      #9ca3af;
+  --wot-text-on-brand:  #ffffff;
+  --wot-text-on-accent: #1a1100;
+
+  // Borders
+  --wot-border:         rgba(0, 0, 0, 0.10);
+  --wot-border-strong:  rgba(0, 0, 0, 0.18);
+
+  // States
+  --wot-row-hover:      #eff6ff;
+  --wot-row-alt:        #f8fafc;
+
+  // Status
+  --wot-win:            #16a34a;
+  --wot-lose:           #dc2626;
+  --wot-status-done-bg: #dcfce7;
+  --wot-status-done-fg: #166534;
+  --wot-status-draw-bg: #fef3c7;
+  --wot-status-draw-fg: #92400e;
+  --wot-status-live-bg: #dbeafe;
+  --wot-status-live-fg: #1d4ed8;
+
+  // Shadows
+  --wot-shadow-card:    0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --wot-shadow-sidebar: 2px 0 8px rgba(0,0,0,0.12);
+}
+
+// ─── CSS custom properties — Dark ─────────────────────────
+.dark-theme {
+  // Backgrounds
+  --wot-bg-page:        #0f0c1a;
+  --wot-bg-surface:     #18142d;
+  --wot-bg-surface-2:   #1e1a32;
+  --wot-bg-sidebar:     #130f24;
+  --wot-bg-toolbar:     #1a1530;
+  --wot-bg-input:       #0f0c1a;
+
+  // Brand (same hue, lighter for dark bg readability)
+  --wot-primary:        #64b5f6;   // blue-300
+  --wot-primary-dark:   #42a5f5;   // blue-400
+  --wot-primary-light:  #1565c0;   // blue-800
+   --wot-accent:         #ffeb3b;   // bright yellow works on dark bg
+  --wot-accent-dark:    #fbc02d;
+  --wot-accent-text:    #1a1100;
+  // Text
+  --wot-text-primary:   #ece6ff;
+  --wot-text-secondary: #8878b8;
+  --wot-text-hint:      #5a4e7a;
+  --wot-text-on-brand:  #ffffff;
+  --wot-text-on-accent: #1a1100;
+
+  // Borders
+  --wot-border:         rgba(255, 255, 255, 0.08);
+  --wot-border-strong:  rgba(255, 255, 255, 0.14);
+
+  // States
+  --wot-row-hover:      rgba(99, 102, 241, 0.10);
+  --wot-row-alt:        rgba(255, 255, 255, 0.02);
+
+  // Status
+  --wot-win:            #4ade80;
+  --wot-lose:           #f87171;
+  --wot-status-done-bg: rgba(74, 222, 128, 0.12);
+  --wot-status-done-fg: #4ade80;
+  --wot-status-draw-bg: rgba(251, 191, 36, 0.12);
+  --wot-status-draw-fg: #fbbf24;
+  --wot-status-live-bg: rgba(96, 165, 250, 0.12);
+  --wot-status-live-fg: #60a5fa;
+
+  // Shadows
+  --wot-shadow-card:    0 1px 3px rgba(0,0,0,0.4);
+  --wot-shadow-sidebar: 2px 0 12px rgba(0,0,0,0.5);
+}
+
+// ─── Shared Material form field override ──────────────────
 mat-form-field.forms {
   width: 100%;
+
   .mat-mdc-text-field-wrapper > .mat-mdc-form-field-flex {
     height: 50px;
 
@@ -42,4 +182,15 @@ mat-form-field.forms {
   .mat-sort-header-container {
     justify-content: center;
   }
+}
+
+// ─── Snackbars ────────────────────────────────────────────
+.success-snackbar {
+  --mdc-snackbar-container-color: #166534;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #991b1b;
+  --mdc-snackbar-supporting-text-color: #ffffff;
 }

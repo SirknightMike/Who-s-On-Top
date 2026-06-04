@@ -1,9 +1,69 @@
-<div>
-    <div class="heading">
-        <h1>Welcome!</h1>
-        <mat-divider></mat-divider>
+<app-page-layout
+  title="Welcome"
+  subtitle="Track rankings, compare performances, and follow the latest match results in one place."
+>
+  <section class="welcome">
+    <div class="welcome__hero">
+      <div>
+        <h3>Stay on top of every competition.</h3>
+        <p class="welcome__subtitle">
+          Discover standings, analyze player stats, and keep your edge with
+          up-to-date results.
+        </p>
+        <div class="welcome__actions">
+          <button mat-raised-button color="primary" [routerLink]="['/leaderboard']">
+            View Leaderboard
+          </button>
+          <button mat-stroked-button color="primary" [routerLink]="['/login']">
+            Sign In
+          </button>
+        </div>
+      </div>
+      
     </div>
-    <div class="content">
-        <p>This is the leaderboard application which delivers high quality leaderboard display as well as statics about players records.</p>
+
+    <div class="welcome__stats">
+      <mat-card class="stat-card" appearance="outlined">
+        <div class="stat-card__value">24</div>
+        <div class="stat-card__label">Active Players</div>
+      </mat-card>
+      <mat-card class="stat-card" appearance="outlined">
+        <div class="stat-card__value">8</div>
+        <div class="stat-card__label">Competitions</div>
+      </mat-card>
+      <mat-card class="stat-card" appearance="outlined">
+        <div class="stat-card__value">52</div>
+        <div class="stat-card__label">Matches This Month</div>
+      </mat-card>
     </div>
-</div>
+
+    <div class="welcome__features">
+      <mat-card class="feature-card" appearance="outlined">
+        <mat-icon color="primary">leaderboard</mat-icon>
+        <h3>Live Rankings</h3>
+        <p>Sortable leaderboard with the latest player standings.</p>
+      </mat-card>
+      <mat-card class="feature-card" appearance="outlined">
+        <mat-icon color="primary">insights</mat-icon>
+        <h3>Performance Insights</h3>
+        <p>Review win rates, streaks, and championship history.</p>
+      </mat-card>
+      <mat-card class="feature-card" appearance="outlined">
+        <mat-icon color="primary">sports_esports</mat-icon>
+        <h3>Match History</h3>
+        <p>See recent results with quick win/loss indicators.</p>
+      </mat-card>
+    </div>
+    <mat-card class="welcome__highlight" appearance="outlined">
+        <div class="welcome__highlight-title">Quick Highlights</div>
+        <div class="welcome__highlight-body">
+          Keep tabs on top players, streaks, and the most recent match outcomes.
+        </div>
+        <div class="welcome__highlight-actions">
+          <button mat-button color="primary" [routerLink]="['/register']">
+            Create Account
+          </button>
+        </div>
+      </mat-card>
+  </section>
+</app-page-layout>

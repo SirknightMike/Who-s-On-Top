@@ -1,67 +1,125 @@
-<div class="remove-margin">
-  <div class="register-container">
-    <div class="register-header">
-      <h2>Register</h2>
+<div class="auth-page">
+  <div class="auth-card">
+
+    <div class="card-banner">
+      <div class="banner-icon">
+        <mat-icon>person_add</mat-icon>
+      </div>
+      <div class="banner-text">
+        <h2>Create account</h2>
+        <p>Join the competition — it's free</p>
+      </div>
     </div>
-    <div class="input-section">
-      <mat-form-field class="forms" appearance="outline">
-        <mat-label>Username</mat-label>
-        <input
-          matInput
-          type="text"
-          placeholder="Choose a Username"
-          id="username"
-          name="username"
-          [(ngModel)]="user.username"
-          (keydown.enter)="onRegisterClick()"
-        />
-      </mat-form-field>
 
-      <mat-form-field class="forms" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="text"
-          placeholder="test@gmail.com"
-          id="email"
-          name="email"
-          [(ngModel)]="user.email"
-          (keydown.enter)="onRegisterClick()"
-        />
-      </mat-form-field>
+    <form class="card-body" #registerForm="ngForm" (ngSubmit)="onRegisterClick(registerForm)" novalidate>
 
-      <mat-form-field class="forms" appearance="outline">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-          [(ngModel)]="user.password"
-          (keydown.enter)="onRegisterClick()"
-        />
-      </mat-form-field>
+      <div class="field-group">
+        <label class="field-label">Username</label>
+        <div class="field-wrap">
+          <mat-icon class="field-icon">person</mat-icon>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Pick a username"
+            name="username"
+            [(ngModel)]="user.username"
+            required
+            minlength="3"
+            #username="ngModel"
+          />
+        </div>
+        <div class="field-error" *ngIf="username.invalid && (username.dirty || username.touched)">
+          <mat-icon>error_outline</mat-icon>
+          <span *ngIf="username.errors?.['required']">Username is required.</span>
+          <span *ngIf="username.errors?.['minlength']">Must be at least 3 characters.</span>
+        </div>
+      </div>
 
-      <mat-form-field class="forms" appearance="outline">
-        <mat-label>Confirmed Password</mat-label>
-        <input
-          matInput
-          type="password"
-          placeholder="Reenter Password"
-          id="confimed-password"
-          name="confirmed-password"
-          [(ngModel)]="confirmPassword"
-          (keydown.enter)="onRegisterClick()"
-        />
-      </mat-form-field>
+      <div class="field-group">
+        <label class="field-label">Email</label>
+        <div class="field-wrap">
+          <mat-icon class="field-icon">mail</mat-icon>
+          <input
+            class="field-input"
+            type="email"
+            placeholder="you@example.com"
+            name="email"
+            [(ngModel)]="user.email"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
+        <div class="field-error" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <mat-icon>error_outline</mat-icon>
+          <span *ngIf="email.errors?.['required']">Email is required.</span>
+          <span *ngIf="email.errors?.['email']">Enter a valid email address.</span>
+        </div>
+      </div>
 
-      <button type="button" (click)="onRegisterClick()" class="register-button">
-        Register
+      <div class="field-group">
+        <label class="field-label">Password</label>
+        <div class="field-wrap">
+          <mat-icon class="field-icon">lock</mat-icon>
+          <input
+            class="field-input"
+            type="password"
+            placeholder="Min. 6 characters"
+            name="password"
+            [(ngModel)]="user.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+        </div>
+        <div class="strength-bars" *ngIf="user.password">
+          <div class="strength-bar" [class.filled]="passwordStrength >= 1"></div>
+          <div class="strength-bar" [class.filled]="passwordStrength >= 2"></div>
+          <div class="strength-bar" [class.filled]="passwordStrength >= 3"></div>
+          <div class="strength-bar" [class.filled]="passwordStrength >= 4"></div>
+        </div>
+        <span class="strength-label" *ngIf="user.password">
+          Strength: {{ strengthLabel }}
+        </span>
+        <div class="field-error" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <mat-icon>error_outline</mat-icon>
+          <span *ngIf="password.errors?.['required']">Password is required.</span>
+          <span *ngIf="password.errors?.['minlength']">Must be at least 6 characters.</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Confirm password</label>
+        <div class="field-wrap">
+          <mat-icon class="field-icon">lock</mat-icon>
+          <input
+            class="field-input"
+            type="password"
+            placeholder="Repeat your password"
+            name="confirmed-password"
+            [(ngModel)]="confirmPassword"
+            required
+            #confirmedPassword="ngModel"
+          />
+        </div>
+        <div class="field-error"
+          *ngIf="(confirmedPassword.dirty || confirmedPassword.touched) && (confirmedPassword.invalid || !passwordsMatch)">
+          <mat-icon>error_outline</mat-icon>
+          <span *ngIf="confirmedPassword.errors?.['required']">Please confirm your password.</span>
+          <span *ngIf="!passwordsMatch && !confirmedPassword.errors?.['required']">Passwords do not match.</span>
+        </div>
+      </div>
+
+      <div class="card-divider"></div>
+
+      <button type="submit" class="btn-primary" [disabled]="registerForm.invalid || !passwordsMatch">
+        Create account
       </button>
-      <p class="login-link">
+
+      <p class="alt-link">
         Already have an account? <a [routerLink]="['/login']">Login here</a>
       </p>
-    </div>
+
+    </form>
   </div>
 </div>

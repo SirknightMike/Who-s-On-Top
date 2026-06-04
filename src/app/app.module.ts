@@ -20,14 +20,22 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from '../components/error-dialog/sidenav/sidenav.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { LeaderboardPageComponent } from './pages/leaderboard-page/leaderboard-page.component';
+import { MatchesPageComponent } from './pages/matches-page/matches-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material/card';
+import { PageLayoutComponent } from 'src/components/page-layout/page-layout.component';
+import { MatchResultDialogComponent } from 'src/components/match-result-dialog/match-result-dialog.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -41,6 +49,9 @@ import { MatSortModule } from '@angular/material/sort';
     WelcomePageComponent,
     ProfilePageComponent,
     LeaderboardPageComponent,
+    MatchesPageComponent,
+    PageLayoutComponent,
+    MatchResultDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +72,12 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

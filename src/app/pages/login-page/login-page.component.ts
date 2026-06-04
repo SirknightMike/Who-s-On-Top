@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, Routes } from '@angular/router';
 import { UserService } from 'src/Services/user/user.service';
@@ -22,7 +23,13 @@ export class LoginPageComponent implements OnInit {
     localStorage.removeItem('jwtToken');
   }
 
-  onLoginClick(): void {
+  onLoginClick(form?: NgForm): void {
+    if (form && form.invalid) {
+      form.control.markAllAsTouched();
+      this.openErrorSnackbar('Please fix the form errors.');
+      return;
+    }
+
     this._userService
       .loginUser(this.user)
       .pipe()

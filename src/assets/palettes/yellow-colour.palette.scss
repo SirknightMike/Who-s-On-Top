@@ -1,16 +1,32 @@
 $stylish-yellow-palette: (
-  50: #fffde7, // Lightest shade
-  100: #fff9c4,
-  200: #fff59d,
-  300: #fff176,
-  400: #ffee58, // Primary yellow shade
-  500: #ffeb3b, // Primary yellow
-  600: #fdd835,
-  700: #fbc02d,
-  800: #f9a825,
-  900: #f57f17, // Darkest shade
-  A100: #ffff8d, // Accent color
+  50:   #fffde7,
+  100:  #fff9c4,
+  200:  #fff59d,
+  300:  #fff176,
+  400:  #ffee58,
+  500:  #ffeb3b,
+  600:  #fdd835,
+  700:  #fbc02d,
+  800:  #f9a825,
+  900:  #f57f17,
+  A100: #ffff8d,
   A200: #ffff00,
   A400: #ffea00,
   A700: #ffd600,
+  contrast: (
+    50:   rgba(0, 0, 0, 0.87),
+    100:  rgba(0, 0, 0, 0.87),
+    200:  rgba(0, 0, 0, 0.87),
+    300:  rgba(0, 0, 0, 0.87),
+    400:  rgba(0, 0, 0, 0.87),
+    500:  rgba(0, 0, 0, 0.87),
+    600:  rgba(0, 0, 0, 0.87),
+    700:  rgba(0, 0, 0, 0.87),
+    800:  rgba(0, 0, 0, 0.87),
+    900:  rgba(0, 0, 0, 0.87),
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(0, 0, 0, 0.87),
+  ),
 );

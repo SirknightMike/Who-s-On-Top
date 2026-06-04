@@ -1,8 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Matches, UserTable } from 'src/app/interfaces/User-interfaces';
+import {
+  MatchResultData,
+  MatchResultDialogComponent,
+} from 'src/components/match-result-dialog/match-result-dialog.component';
 
 const data: UserTable[] = [
   {
@@ -235,9 +240,43 @@ export class LeaderboardPageComponent {
   dataSource = new MatTableDataSource<UserTable>(data);
 
   Matches = Matches;
+  matchResults: MatchResultData[] = [
+    {
+      competition: 'Season Ladder',
+      scheduledAt: new Date(2026, 0, 24),
+      playerOne: 'Hydrogen',
+      playerTwo: 'Lithium',
+      scorePlayerOne: 3,
+      scorePlayerTwo: 1,
+      status: 'Completed',
+      notes: 'Hydrogen wins with a late push.',
+    },
+    {
+      competition: 'Weekend Sprint',
+      scheduledAt: new Date(2026, 0, 23),
+      playerOne: 'Beryllium',
+      playerTwo: 'Oxygen',
+      scorePlayerOne: 2,
+      scorePlayerTwo: 2,
+      status: 'Draw',
+      notes: 'Balanced matchup across all rounds.',
+    },
+    {
+      competition: 'Friendly',
+      scheduledAt: new Date(2026, 0, 22),
+      playerOne: 'Neon',
+      playerTwo: 'Boron',
+      scorePlayerOne: 0,
+      scorePlayerTwo: 1,
+      status: 'Completed',
+      notes: 'Boron takes it in overtime.',
+    },
+  ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -251,5 +290,27 @@ export class LeaderboardPageComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openAddResultDialog() {
+    const dialogRef = this.dialog.open(MatchResultDialogComponent, {
+      width: '560px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: MatchResultData | undefined) => {
+      if (!result) {
+        return;
+      }
+
+      this.matchResults = [result, ...this.matchResults];
+    });
+  }
+
+  getStatusClass(status: string) {
+    const normalized = status
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+    return `status-${normalized}`;
   }
 }

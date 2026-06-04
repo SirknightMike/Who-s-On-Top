@@ -1,26 +1,25 @@
-<div>
-  <h1>Leaderboard</h1>
-  <mat-divider></mat-divider>
-  <p>
-    Displays the players info depending on what competition they are
-    participating.
-  </p>
-</div>
-
-<div class="search-layout">
-  <mat-form-field class="forms" appearance="outline">
+<app-page-layout
+  title="Leaderboard"
+  subtitle="Displays the players info depending on what competition they are participating."
+>
+  <mat-form-field class="search-field" appearance="outline" page-actions>
+    <mat-icon matPrefix>search</mat-icon>
     <input
       matInput
       type="text"
-      placeholder="Search"
+      placeholder="Search players"
       (keyup)="applyFilter($event)"
     />
-    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-</div>
 
-<div class="table-container">
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <mat-card class="leaderboard-card">
+    <div class="table-container">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z2 leaderboard-table"
+      >
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th
@@ -131,10 +130,50 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    class="bottom-corner"
-  ></mat-paginator>
-</div>
+      </table>
+    </div>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      class="leaderboard-paginator"
+    ></mat-paginator>
+  </mat-card>
+
+  <section class="matches-section">
+    <div class="matches-header">
+      <div>
+        <h2 class="matches-title">Recent matches</h2>
+        <p class="matches-subtitle">
+          Fake data preview of how match cards look after creation.
+        </p>
+      </div>
+      <button mat-flat-button color="primary" (click)="openAddResultDialog()">
+        Add match result
+      </button>
+    </div>
+
+    <div class="matches-grid">
+      <mat-card class="match-card" *ngFor="let match of matchResults">
+        <div class="match-card__header">
+          <div>
+            <div class="match-card__competition">{{ match.competition }}</div>
+            <div class="match-card__date">
+              {{ match.scheduledAt | date: 'MMM d, y' }}
+            </div>
+          </div>
+          <span class="match-card__status" [ngClass]="getStatusClass(match.status)">
+            {{ match.status }}
+          </span>
+        </div>
+        <div class="match-card__players">
+          <span>{{ match.playerOne }}</span>
+          <span class="match-card__score">
+            {{ match.scorePlayerOne }} - {{ match.scorePlayerTwo }}
+          </span>
+          <span>{{ match.playerTwo }}</span>
+        </div>
+        <div class="match-card__notes">{{ match.notes }}</div>
+      </mat-card>
+    </div>
+  </section>
+</app-page-layout>
