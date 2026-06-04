@@ -1,49 +1,100 @@
 <mat-drawer-container class="nav-container">
-    <mat-drawer #drawer mode="side" opened class="drawer">
-        <div class="heading">
-            <h1>Who's On Top</h1>
+  <mat-drawer #drawer mode="side" opened class="drawer">
+
+    <div class="sidebar-header">
+      <div class="app-logo">
+        <div class="logo-mark">
+          <mat-icon>emoji_events</mat-icon>
         </div>
-        <!-- please check the way the drawer is being used here, could we not use the sidenav we have created -->
-        <div class="side-nav">
-            <button mat-button [routerLink]="['']">
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
-            </button>
-            <button mat-button>
-                <mat-icon>sports_esports</mat-icon>
-                <span>Competitions</span>
-            </button>
-            <button mat-button [routerLink]="['leaderboard']">
-                <mat-icon>leaderboard</mat-icon>
-                <span>Leaderboard</span>
-            </button>
-            <button mat-button [routerLink]="['matches']">
-                <mat-icon>scoreboard</mat-icon>
-                <span>Matches</span>
-            </button>
-            <button mat-button>
-                <mat-icon>emoji_events</mat-icon>
-                <span>Top Performers</span>
-            </button>
+        <div class="app-title-block">
+          <span class="app-name">Who's On Top</span>
+          <span class="app-tagline">Competition Tracker</span>
         </div>
-    </mat-drawer>
-    <mat-drawer-content>
-        <!-- This is the toolbar section with the main content below. -->
-        <mat-toolbar class="toolbar">
-            <button mat-icon-button class="menu-icon"  aria-label="menu-icon" (click)="toggleDrawer()">
-              <mat-icon>menu</mat-icon>
-            </button>
-            <span class="account-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Account icon" [matMenuTriggerFor]="menu">
-                <mat-icon>account_circle</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="onProfileClick()">Profile</button>
-                <button mat-menu-item (click)="onLogoutClick()">Logout</button>
-            </mat-menu>
-          </mat-toolbar>
-        <div class="main-content">
-            <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <span class="nav-section-label">Menu</span>
+      <a mat-button class="nav-item" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-button class="nav-item" routerLinkActive="active">
+        <mat-icon>sports_esports</mat-icon>
+        <span>Competitions</span>
+      </a>
+      <a mat-button class="nav-item" [routerLink]="['leaderboard']" routerLinkActive="active">
+        <mat-icon>leaderboard</mat-icon>
+        <span>Leaderboard</span>
+      </a>
+      <a mat-button class="nav-item" [routerLink]="['matches']" routerLinkActive="active">
+        <mat-icon>scoreboard</mat-icon>
+        <span>Matches</span>
+      </a>
+      <a mat-button class="nav-item" routerLinkActive="active">
+        <mat-icon>star</mat-icon>
+        <span>Top Performers</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button mat-button class="user-row" [matMenuTriggerFor]="userMenu">
+        <div class="user-avatar">MV</div>
+        <div class="user-info">
+          <span class="user-name">Mike V.</span>
+          <span class="user-role">Administrator</span>
         </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+        <mat-icon class="user-caret">more_horiz</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="onProfileClick()">
+          <mat-icon>person</mat-icon> Profile
+        </button>
+        <button mat-menu-item (click)="onLogoutClick()">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar class="toolbar">
+
+      <button mat-icon-button class="menu-toggle" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="toolbar-spacer"></span>
+
+      <button
+        mat-icon-button
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+      >
+        <mat-icon>{{ isDark ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+
+      <button mat-icon-button class="toolbar-btn" style="position: relative">
+        <mat-icon>notifications</mat-icon>
+        <span class="notif-dot"></span>
+      </button>
+
+      <div class="toolbar-avatar" [matMenuTriggerFor]="profileMenu">MV</div>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item (click)="onProfileClick()">
+          <mat-icon>person</mat-icon> Profile
+        </button>
+        <button mat-menu-item (click)="onLogoutClick()">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </mat-menu>
+
+    </mat-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -18,7 +18,7 @@ export class RegisterPageComponent implements OnInit {
   constructor(
     private _userService: UserService,
     public dialog: MatDialog,
-    public snackbar: MatSnackBar
+    public snackbar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +52,21 @@ export class RegisterPageComponent implements OnInit {
       duration: 100000,
       panelClass: 'error-snackbar',
     });
+  }
+
+  get passwordStrength(): number {
+    const p = this.user.password || '';
+    let score = 0;
+    if (p.length >= 6) score++;
+    if (p.length >= 10) score++;
+    if (/[A-Z]/.test(p)) score++;
+    if (/[^a-zA-Z0-9]/.test(p)) score++;
+    return score;
+  }
+
+  get strengthLabel(): string {
+    const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+    return labels[this.passwordStrength] || 'Weak';
   }
 
   openSuccessSnackbar(message: string): void {

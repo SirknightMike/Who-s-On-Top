@@ -35,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { PageLayoutComponent } from 'src/components/page-layout/page-layout.component';
 import { MatchResultDialogComponent } from 'src/components/match-result-dialog/match-result-dialog.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { MatchResultDialogComponent } from 'src/components/match-result-dialog/m
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

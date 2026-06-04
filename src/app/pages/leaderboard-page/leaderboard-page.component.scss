@@ -2,10 +2,14 @@
   width: min(360px, 100%);
 }
 
+// ─── Card & table ─────────────────────────────────────────
 .leaderboard-card {
   padding: 0;
   overflow: hidden;
   border-radius: 16px;
+  background: var(--wot-bg-surface) !important;
+  box-shadow: var(--wot-shadow-card) !important;
+  border: 1px solid var(--wot-border) !important;
 }
 
 .table-container {
@@ -15,63 +19,96 @@
 .leaderboard-table {
   width: 100%;
   min-width: 720px;
-  border-collapse: separate;
-  border-spacing: 0;
+  background: transparent !important;
 }
 
 .mat-mdc-header-row {
-  background-color: #111827;
+  background: var(--wot-primary-dark) !important;
 }
 
 .mat-mdc-header-cell {
-  color: #f9fafb;
+  color: #ffffff !important;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  border-bottom: none !important;
 }
 
 .mat-mdc-row {
-  background-color: #fff;
-  transition: background-color 0.15s ease;
+  background: var(--wot-bg-surface) !important;
+  transition: background 0.15s ease;
 }
 
 .mat-mdc-row:nth-child(even) {
-  background-color: #f8fafc;
+  background: var(--wot-bg-surface-2) !important;
 }
 
 .mat-mdc-row:hover {
-  background-color: #eef2ff;
+  background: var(--wot-row-hover) !important;
+}
+
+.mat-mdc-cell {
+  color: var(--wot-text-primary) !important;
+  border-bottom-color: var(--wot-border) !important;
+  font-size: 0.9rem;
 }
 
 .centering-cells {
   text-align: center;
 }
 
-.top-left-corner {
-  border-top-left-radius: 12px;
-}
-
-.top-right-corner {
-  border-top-right-radius: 12px;
-}
-
 .win-icon {
-  color: #16a34a;
+  color: var(--wot-win);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .lose-icon {
-  color: #dc2626;
+  color: var(--wot-lose);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
+// ─── Position badges ──────────────────────────────────────
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.8rem;
+
+  &.rank-1 { background: rgba(251,191,36,0.20); color: #f59e0b; }
+  &.rank-2 { background: rgba(148,163,184,0.20); color: #94a3b8; }
+  &.rank-3 { background: rgba(180,108,80,0.20); color: #b46c50; }
+  &.rank-other { background: var(--wot-border); color: var(--wot-text-secondary); }
+}
+
+// ─── Paginator ────────────────────────────────────────────
 .leaderboard-paginator {
-  border-top: 1px solid #e5e7eb;
+  background: var(--wot-bg-surface) !important;
+  color: var(--wot-text-primary) !important;
+  border-top: 1px solid var(--wot-border);
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+
+  .mat-mdc-icon-button {
+    color: var(--wot-text-secondary) !important;
+  }
+
+  .mat-mdc-select-value {
+    color: var(--wot-text-primary) !important;
+  }
 }
 
+// ─── Recent matches section ───────────────────────────────
 .matches-section {
-  margin-top: 32px;
+  margin-top: 36px;
   display: grid;
   gap: 16px;
 }
@@ -86,54 +123,68 @@
 
 .matches-title {
   margin: 0 0 4px;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--wot-text-primary);
 }
 
 .matches-subtitle {
   margin: 0;
-  color: #6b7280;
+  font-size: 0.875rem;
+  color: var(--wot-text-secondary);
 }
 
 .matches-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+// ─── Match cards ──────────────────────────────────────────
 .match-card {
   border-radius: 16px;
-  padding: 16px;
+  padding: 18px;
   display: grid;
-  gap: 12px;
-  background: #fff;
+  gap: 14px;
+  background: var(--wot-bg-surface) !important;
+  box-shadow: var(--wot-shadow-card) !important;
+  border: 1px solid var(--wot-border) !important;
+  transition: box-shadow 0.15s, transform 0.15s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  }
 }
 
 .match-card__header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
 }
 
 .match-card__competition {
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--wot-text-primary);
 }
 
 .match-card__date {
-  color: #6b7280;
-  font-size: 0.85rem;
+  color: var(--wot-text-hint);
+  font-size: 0.8rem;
+  margin-top: 2px;
 }
 
 .match-card__status {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #e5e7eb;
-  color: #374151;
-  font-weight: 600;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .match-card__players {
@@ -142,29 +193,43 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--wot-text-primary);
+
+  span:last-child {
+    text-align: right;
+  }
 }
 
 .match-card__score {
-  font-size: 1.1rem;
-  color: #111827;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--wot-primary);
+  text-align: center;
+  padding: 4px 10px;
+  background: rgba(25, 118, 210, 0.08);
+  border-radius: 8px;
 }
 
 .match-card__notes {
-  color: #6b7280;
-  font-size: 0.9rem;
+  color: var(--wot-text-hint);
+  font-size: 0.85rem;
+  padding-top: 4px;
+  border-top: 1px solid var(--wot-border);
 }
 
+// ─── Status pill colours ──────────────────────────────────
 .status-completed {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--wot-status-done-bg);
+  color: var(--wot-status-done-fg);
 }
 
 .status-draw {
-  background: #fef3c7;
-  color: #92400e;
+  background: var(--wot-status-draw-bg);
+  color: var(--wot-status-draw-fg);
 }
 
 .status-in-progress {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: var(--wot-status-live-bg);
+  color: var(--wot-status-live-fg);
 }
